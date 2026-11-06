@@ -1,0 +1,62 @@
+#!/bin/sh
+
+HANGMU_ENV_FILE=/etc/hangmu/.env
+
+if [ -f "$HANGMU_ENV_FILE" ]; then
+    while IFS= read -r line || [ -n "$line" ]; do
+        line=$(printf '%s' "$line" | tr -d '\r')
+        case "$line" in
+            '' | \#*) continue ;;
+            *=*) ;;
+            *) continue ;;
+        esac
+        key=${line%%=*}
+        val=${line#*=}
+        case "$key" in
+            *[!A-Za-z0-9_]* | [0-9]*) continue ;;
+        esac
+        eval "already=\${$key+x}"
+        if [ -z "$already" ]; then
+            export "$key=$val"
+        fi
+    done < "$HANGMU_ENV_FILE"
+fi
+
+: "${DOMAIN:=localhost}"
+: "${API_TIMEOUT_MS:=10000}"
+: "${SITE_URL:=https://${DOMAIN}}"
+: "${REAL_IP_HEADER:=CF-Connecting-IP}"
+API_URL=${API_URL:-}
+API_URL=${API_URL%/}
+case "$API_URL" in
+    '' | http://* | https://*) ;;
+    *) echo "05-load-env: API_URL phải bắt đầu bằng http(s)://, bỏ qua: $API_URL" >&2; API_URL= ;;
+esac
+case "$API_URL" in
+    *[!A-Za-z0-9.:/_-]*) echo "05-load-env: API_URL có ký tự không hợp lệ, bỏ qua" >&2; API_URL= ;;
+esac
+[ -n "$API_URL" ] || echo "05-load-env: CẢNH BÁO API_URL rỗng — frontend sẽ gọi /api, /ws cùng domain (Nginx này không proxy backend)" >&2
+SITE_URL=${SITE_URL%/}
+TELEGRAM_URL=${TELEGRAM_URL:-}
+case "$TELEGRAM_URL" in
+    '' | https://t.me/*) ;;
+    *) echo "05-load-env: TELEGRAM_URL phải là https://t.me/..., bỏ qua" >&2; TELEGRAM_URL= ;;
+esac
+case "$TELEGRAM_URL" in
+    *[!A-Za-z0-9.:/_+-]*) echo "05-load-env: TELEGRAM_URL có ký tự không hợp lệ, bỏ qua" >&2; TELEGRAM_URL= ;;
+esac
+GTM_ID=${GTM_ID:-}
+case "$GTM_ID" in
+    '') ;;
+    GTM-*[!A-Z0-9-]* | *[!A-Z0-9-]*) echo "05-load-env: GTM_ID không hợp lệ (dạng GTM-XXXXXXX), bỏ qua" >&2; GTM_ID= ;;
+    GTM-*) ;;
+    *) echo "05-load-env: GTM_ID phải bắt đầu bằng GTM-, bỏ qua" >&2; GTM_ID= ;;
+esac
+if [ -z "${NGINX_RESOLVER:-}" ]; then
+    NGINX_RESOLVER=$(awk '/^nameserver/ { print $2; exit }' /etc/resolv.conf 2>/dev/null)
+    case "$NGINX_RESOLVER" in
+        '') NGINX_RESOLVER=1.1.1.1 ;;
+        *:*) NGINX_RESOLVER="[$NGINX_RESOLVER]" ;;
+    esac
+fi
+export DOMAIN SITE_URL API_TIMEOUT_MS NGINX_RESOLVER REAL_IP_HEADER API_URL TELEGRAM_URL GTM_ID

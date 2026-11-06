@@ -1,0 +1,436 @@
+.home {
+  --limestone: #cfc2ac;
+  --sand: #e4d8c3;
+  --earth: #7a6450;
+  --cave: #15100c;
+  --devil: #c8102e;
+  --devil-deep: #a00d25;
+
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+  background: #dcd0bb;
+  color: var(--cave);
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+}
+
+.home-scene {
+  position: absolute;
+  inset: 0;
+}
+
+.home-panel {
+  position: absolute;
+  right: clamp(16px, 5vw, 64px);
+  bottom: clamp(56px, 9vh, 96px);
+  width: min(360px, calc(100% - 32px));
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgb(246 239 227 / 0.78);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 12px 30px -18px rgb(40 25 15 / 0.5);
+}
+
+.home-lede {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #2a2018;
+  text-wrap: pretty;
+  text-shadow: 0 1px 0 rgb(255 248 236 / 0.6);
+}
+
+.home-enter {
+  appearance: none;
+  border: 0;
+  border-radius: 6px 6px 18px 6px;
+  padding: 14px 30px 15px;
+  background: var(--devil);
+  color: #fff8ef;
+  font:
+    600 1.0625rem/1 'Be Vietnam Pro',
+    system-ui,
+    sans-serif;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow:
+    inset 0 -3px 0 var(--devil-deep),
+    0 6px 18px -8px rgb(80 10 20 / 0.6);
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.home-enter:hover {
+  transform: translateY(-1px);
+}
+
+.home-enter:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 -1px 0 var(--devil-deep);
+}
+
+.home-enter:focus-visible {
+  outline: 3px solid var(--cave);
+  outline-offset: 3px;
+}
+
+.home-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  padding: 0 16px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgb(42 32 24 / 0.72);
+}
+
+@media (max-aspect-ratio: 85/100) {
+  .home-panel {
+    left: 16px;
+    right: 16px;
+    width: auto;
+    bottom: calc(max(12px, env(safe-area-inset-bottom)) + 76px);
+    justify-items: center;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-enter {
+    transition: none;
+  }
+}
+
+.home-count {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4a3a2c;
+}
+
+.home-queue {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgb(255 248 236 / 0.82);
+  color: #2a2018;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.home-queue p {
+  margin: 0;
+}
+
+.home-queue strong {
+  color: var(--devil);
+  font-size: 1.125rem;
+}
+
+.home-error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgb(200 16 46 / 0.12);
+  color: #7a0d1e;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.home-enter:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.name-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgb(21 16 12 / 0.45);
+  backdrop-filter: blur(3px);
+}
+
+.name-dialog {
+  width: min(380px, 100%);
+  display: grid;
+  gap: 10px;
+  padding: 22px 22px 18px;
+  border-radius: 14px;
+  background: #f6efe3;
+  color: #2a2018;
+  box-shadow: 0 24px 60px -20px rgb(0 0 0 / 0.55);
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+}
+
+.name-dialog h2 {
+  margin: 0 0 4px;
+  font:
+    800 1.375rem/1.2 Bitter,
+    Georgia,
+    serif;
+}
+
+.name-label {
+  font-size: 0.875rem;
+  color: #5a4838;
+}
+
+.name-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #cdbfa6;
+  border-radius: 8px;
+  background: #fffaf2;
+  color: #1e1712;
+  font:
+    600 1.0625rem 'Be Vietnam Pro',
+    system-ui,
+    sans-serif;
+}
+
+.name-input:focus-visible {
+  outline: none;
+  border-color: var(--devil);
+}
+
+.name-count {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #6a5847;
+  text-align: right;
+}
+
+.name-count.is-over {
+  color: var(--devil);
+  font-weight: 600;
+}
+
+.name-number-row {
+  display: grid;
+  grid-template-columns: 1fr auto 76px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.name-number-text {
+  display: grid;
+  gap: 2px;
+}
+
+.name-hint {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #7a6754;
+}
+
+.name-jersey {
+  width: 50px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  padding-top: 6px;
+  background: linear-gradient(180deg, #e0301f, #b8170e);
+  clip-path: polygon(
+    30% 0,
+    70% 0,
+    100% 16%,
+    90% 38%,
+    80% 33%,
+    80% 100%,
+    20% 100%,
+    20% 33%,
+    10% 38%,
+    0 16%
+  );
+}
+
+.name-jersey-num {
+  font:
+    800 1.25rem/1 Bitter,
+    Georgia,
+    serif;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.name-number {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.name-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.name-cancel {
+  appearance: none;
+  border: 1px solid #b9a88f;
+  border-radius: 6px;
+  padding: 10px 18px;
+  background: transparent;
+  color: #3d3026;
+  font:
+    600 0.9375rem 'Be Vietnam Pro',
+    system-ui,
+    sans-serif;
+  cursor: pointer;
+}
+
+.name-cancel:hover {
+  background: rgb(0 0 0 / 0.05);
+}
+
+.name-cancel:focus-visible {
+  outline: 3px solid var(--devil);
+  outline-offset: 2px;
+}
+
+.quiz-dialog {
+  width: min(460px, 100%);
+}
+
+.quiz-kicker {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--devil);
+}
+
+.quiz-dialog h2 {
+  font-size: 1.1875rem;
+  line-height: 1.35;
+}
+
+.quiz-loading {
+  margin: 8px 0;
+  color: #5a4838;
+}
+
+.quiz-answers {
+  display: grid;
+  gap: 8px;
+}
+
+.quiz-answer {
+  appearance: none;
+  width: 100%;
+  padding: 11px 14px;
+  border: 2px solid #cdbfa6;
+  border-radius: 8px;
+  background: #fffaf2;
+  color: #1e1712;
+  text-align: left;
+  font:
+    600 0.9688rem/1.35 'Be Vietnam Pro',
+    system-ui,
+    sans-serif;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    background-color 0.15s;
+}
+
+.quiz-answer:hover:not(:disabled) {
+  border-color: #a8957a;
+  background: #fff;
+}
+
+.quiz-answer:focus-visible {
+  outline: 3px solid var(--devil);
+  outline-offset: 2px;
+}
+
+.quiz-answer:disabled {
+  cursor: default;
+}
+
+.quiz-answer.is-chosen {
+  border-color: #8a7660;
+  background: #efe5d4;
+}
+
+.quiz-answer.is-right {
+  border-color: #2f7d3b;
+  background: #e3f2df;
+  color: #173d1d;
+}
+
+.quiz-answer.is-wrong {
+  border-color: var(--devil);
+  background: #f9e1e1;
+  color: #6b0b1a;
+}
+
+.quiz-result {
+  margin: 4px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.quiz-result.is-right {
+  background: #e3f2df;
+  color: #1f5a28;
+}
+
+.quiz-result.is-wrong {
+  background: #fbeee0;
+  color: #7a3d0d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-answer {
+    transition: none;
+  }
+}
+
+.quiz-dialog:focus {
+  outline: none;
+}
+
+.home-me {
+  margin: 8px 0 0;
+  font-size: 0.8125rem;
+  color: #4a3a2c;
+}
+
+.home-tele {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 6px 12px 6px 10px;
+  border-radius: 999px;
+  background: #229ed9;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.home-tele:hover {
+  background: #1b8bc2;
+}
+
+.home-tele:focus-visible {
+  outline: 3px solid #fbe122;
+  outline-offset: 2px;
+}

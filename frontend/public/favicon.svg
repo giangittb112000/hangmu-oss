@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Hang MU (fan-made): cửa hang tối + đinh ba vàng trên nền đỏ. Không phải logo CLB. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e0182f" />
+      <stop offset="1" stop-color="#9e0b22" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.62" r="0.55">
+      <stop offset="0" stop-color="#3a1a0c" />
+      <stop offset="1" stop-color="#15100c" />
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)" />
+  <!-- vành đá vôi -->
+  <path d="M8 60V35C8 19.5 18.7 9 32 9s24 10.5 24 26v25z" fill="#cfc2ac" />
+  <path d="M8 35C8 19.5 18.7 9 32 9l-6 7-9 5-5 9z" fill="#e4d8c3" />
+  <!-- lòng hang -->
+  <path d="M15 60V37c0-10.8 7.6-19 17-19s17 8.2 17 19v23z" fill="url(#glow)" />
+  <!-- đinh ba -->
+  <g fill="none" stroke="#fbe122" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 58V26M23.5 28v3.5q0 6.5 8.5 6.5t8.5-6.5V28" />
+  </g>
+  <g fill="#fbe122">
+    <path d="M20.6 28.6 23.5 21l2.9 7.6zM37.6 28.6 40.5 21l2.9 7.6zM29 26.6 32 18.5l3 8.1z" />
+  </g>
+</svg>

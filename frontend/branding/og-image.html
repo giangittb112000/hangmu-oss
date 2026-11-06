@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../node_modules/@fontsource/bitter/900.css" />
+    <link rel="stylesheet" href="../node_modules/@fontsource/be-vietnam-pro/500.css" />
+    <link rel="stylesheet" href="../node_modules/@fontsource/be-vietnam-pro/700.css" />
+    <style>
+      * { margin: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 630px; overflow: hidden; }
+      body {
+        position: relative;
+        font-family: 'Be Vietnam Pro', sans-serif;
+        color: #fff;
+        background:
+          radial-gradient(ellipse 70% 90% at 78% 60%, rgba(251, 225, 34, 0.18), transparent 60%),
+          repeating-linear-gradient(115deg, rgba(0, 0, 0, 0.06) 0 2px, transparent 2px 22px),
+          linear-gradient(160deg, #e0182f 0%, #a50c22 55%, #5a0612 100%);
+      }
+      .art { position: absolute; right: 0; bottom: 0; }
+      .copy { position: absolute; left: 72px; top: 64px; width: 640px; }
+      .kicker {
+        display: inline-block;
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 0.32em;
+        color: #15100c;
+        background: #fbe122;
+        padding: 8px 16px 8px 20px;
+        border-radius: 4px;
+      }
+      h1 {
+        margin-top: 22px;
+        font-family: 'Bitter', serif;
+        font-weight: 900;
+        font-size: 150px;
+        line-height: 0.92;
+        letter-spacing: -0.01em;
+        text-shadow: 0 6px 0 #5a0612, 0 14px 30px rgba(0, 0, 0, 0.35);
+      }
+      .tag { margin-top: 26px; font-size: 34px; font-weight: 700; line-height: 1.3; }
+      .sub { margin-top: 10px; font-size: 24px; font-weight: 500; opacity: 0.85; }
+      .foot {
+        position: absolute; left: 72px; bottom: 32px;
+        font-size: 18px; font-weight: 500; opacity: 0.7; letter-spacing: 0.02em;
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="art" width="620" height="630" viewBox="0 0 620 630">
+      <defs>
+        <radialGradient id="cave" cx="0.5" cy="0.7" r="0.6">
+          <stop offset="0" stop-color="#4a2410" />
+          <stop offset="0.55" stop-color="#22140c" />
+          <stop offset="1" stop-color="#15100c" />
+        </radialGradient>
+        <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stop-color="#fbe122" stop-opacity="0.55" />
+          <stop offset="1" stop-color="#fbe122" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+      <polygon points="40,630 70,360 150,190 300,110 450,130 560,220 620,330 620,630" fill="#cfc2ac" />
+      <polygon points="70,360 150,190 220,250" fill="#e4d8c3" />
+      <polygon points="150,190 300,110 260,200" fill="#efe5d3" />
+      <polygon points="300,110 450,130 380,180" fill="#e4d8c3" />
+      <polygon points="450,130 560,220 480,230" fill="#b8a98f" />
+      <polygon points="560,220 620,330 620,420 540,330" fill="#a8987d" />
+      <polygon points="40,630 70,360 120,480 90,630" fill="#b8a98f" />
+      <polygon points="540,330 620,420 620,630 570,630" fill="#9c8c72" />
+      <polygon points="220,250 150,190 260,200" fill="#d8ccb6" />
+      <polygon points="0,630 0,590 120,570 260,600 420,575 620,600 620,630" fill="#5d7a3a" />
+      <polygon points="0,630 0,605 180,595 380,612 620,608 620,630" fill="#4a6330" />
+      <path d="M150 630 V420 C150 300 230 220 330 220 C430 220 510 300 510 420 V630 Z" fill="url(#cave)" />
+      <polygon points="150,420 175,330 200,360" fill="#9c8c72" />
+      <polygon points="510,420 490,320 470,360" fill="#8f7f66" />
+      <circle cx="330" cy="420" r="170" fill="url(#halo)" />
+      <g transform="translate(106 214) scale(7)">
+        <g fill="none" stroke="#fbe122" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 58V26M23.5 28v3.5q0 6.5 8.5 6.5t8.5-6.5V28" />
+        </g>
+        <g fill="#fbe122">
+          <path d="M20.6 28.6 23.5 21l2.9 7.6zM37.6 28.6 40.5 21l2.9 7.6zM29 26.6 32 18.5l3 8.1z" />
+        </g>
+      </g>
+    </svg>
+
+    <div class="copy">
+      <span class="kicker">DI TÍCH LỊCH SỬ</span>
+      <h1>HANG<br />MU</h1>
+      <p class="tag">Vào hang cùng anh em fan Quỷ Đỏ</p>
+      <p class="sub">Sân chơi 3D multiplayer ngay trên trình duyệt</p>
+    </div>
+    <p class="foot">Fan-made · không liên kết chính thức với Manchester United FC</p>
+  </body>
+</html>

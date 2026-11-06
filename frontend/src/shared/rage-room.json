@@ -1,0 +1,85 @@
+{
+  "slots": 5,
+  "ringR": 5,
+  "ringAngle0": 0,
+  "nearDist": 6,
+  "items": [
+    "tomato",
+    "slipper",
+    "cake",
+    "paper"
+  ],
+  "defaultLabels": [
+    3,
+    1,
+    2,
+    0,
+    14
+  ],
+  "nicknames": [
+    {
+      "name": "Ca Dic",
+      "role": "HLV"
+    },
+    {
+      "name": "Bủ Nô",
+      "role": "tiền vệ"
+    },
+    {
+      "name": "Đa Lọt",
+      "role": "hậu vệ"
+    },
+    {
+      "name": "Mắc Gai",
+      "role": "hậu vệ"
+    },
+    {
+      "name": "Licha",
+      "role": "hậu vệ"
+    },
+    {
+      "name": "Đờ Lít",
+      "role": "hậu vệ"
+    },
+    {
+      "name": "Dô Rô",
+      "role": "hậu vệ"
+    },
+    {
+      "name": "Lúc Sô",
+      "role": "hậu vệ"
+    },
+    {
+      "name": "Lam Men",
+      "role": "thủ môn"
+    },
+    {
+      "name": "Mai Nu",
+      "role": "tiền vệ"
+    },
+    {
+      "name": "U Ga Tê",
+      "role": "tiền vệ"
+    },
+    {
+      "name": "Mây Sơn",
+      "role": "tiền vệ"
+    },
+    {
+      "name": "Cún Nha",
+      "role": "tiền đạo"
+    },
+    {
+      "name": "Bờ Mô",
+      "role": "tiền đạo"
+    },
+    {
+      "name": "Sét Cô",
+      "role": "tiền đạo"
+    },
+    {
+      "name": "A Mát",
+      "role": "tiền đạo"
+    }
+  ]
+}

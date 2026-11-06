@@ -1,0 +1,13 @@
+.env
+.env.deploy
+
+backend/target/
+
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json

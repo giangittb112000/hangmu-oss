@@ -1,0 +1,29 @@
+{
+  "name": "hangmu",
+  "private": true,
+  "description": "Hang MU — root scripts chạy dev cho cả backend (Rust) và frontend (Vite)",
+  "scripts": {
+    "postinstall": "npm --prefix frontend install",
+    "dev": "concurrently -k -n be,fe -c red,cyan \"npm:dev:be\" \"npm:dev:fe\"",
+    "dev:lan": "concurrently -k -n be,fe -c red,cyan \"npm:dev:be\" \"npm --prefix frontend run dev -- --host\"",
+    "dev:be": "cd backend && cargo watch -q -w src -w migrations -w Cargo.toml -w build.rs -x run",
+    "dev:fe": "npm --prefix frontend run dev",
+    "build": "npm run build:fe && npm run build:be",
+    "build:fe": "npm --prefix frontend run build",
+    "build:be": "cd backend && cargo build --release",
+    "lint": "npm --prefix frontend run lint && cd backend && cargo fmt --check && cargo clippy -- -D warnings",
+    "docker:be": "docker build -t hangmu-backend ./backend",
+    "docker:fe": "docker build -t hangmu-frontend ./frontend",
+    "be": "cd backend && cargo run -q --",
+    "migrate": "cd backend && cargo run -q -- migrate",
+    "migrate:status": "cd backend && cargo run -q -- migrate:status",
+    "migrate:rollback": "cd backend && cargo run -q -- migrate:rollback",
+    "migrate:reset": "cd backend && cargo run -q -- migrate:reset",
+    "migrate:refresh": "cd backend && cargo run -q -- migrate:refresh",
+    "migrate:fresh": "cd backend && cargo run -q -- migrate:fresh",
+    "make:migration": "cd backend && cargo run -q -- make:migration"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5"
+  }
+}

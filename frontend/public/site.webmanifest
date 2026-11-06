@@ -1,0 +1,17 @@
+{
+  "name": "Hang MU",
+  "short_name": "Hang MU",
+  "description": "Sân chơi 3D multiplayer do fan MU tự làm.",
+  "id": "/",
+  "lang": "vi",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#dcd0bb",
+  "theme_color": "#c8102e",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
